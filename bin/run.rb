@@ -1,3 +1,8 @@
 require_relative '../config/environment'
 
-puts "hello world"
+old_logger = ActiveRecord::Base.logger
+ActiveRecord::Base.logger = nil
+
+cli = CLI.new
+cli.start
+puts "Goodbye!"
